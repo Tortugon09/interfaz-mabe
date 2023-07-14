@@ -1,15 +1,9 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
-import {
-    Bars3BottomLeftIcon,
-    HomeIcon,
-    XMarkIcon,
-} from '@heroicons/react/24/outline'
+import {Bars3BottomLeftIcon, HomeIcon, XMarkIcon,} from '@heroicons/react/24/outline'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-
 import mabelogo from "../assets/mabe.svg"
-import analiticslogo
-    from "../assets/artificial-neural-network-deep-learning-machine-learning-artificial-intelligence-computer-network-others-36268b7a382ab014cdeda721f149cefc.png";
+import analiticslogo from "../assets/artificial-neural-network-deep-learning-machine-learning-artificial-intelligence-computer-network-others-36268b7a382ab014cdeda721f149cefc.png";
 import Table from "./Table.jsx";
 import {Link} from "react-router-dom";
 
