@@ -1,10 +1,23 @@
-import { Fragment, useRef, useState } from 'react'
+import {Fragment, useContext, useRef, useState} from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import InputModal from "./InputModal.jsx";
+import {Context} from "../context/context.jsx";
 
-export default function Modal({open, setOpen, Tienda}) {
+export default function Modal({open, setOpen, Tienda, change}) {
+    const [newValor, setNewValor] = useState(0)
 
+
+    const handleChange = (e) => {
+        setNewValor(e.target.value)
+        console.log(newValor)
+    }
+
+
+    function handleSubmit (){
+        change(newValor)
+        setOpen(false)
+        console.log(valor)
+    }
 
     const cancelButtonRef = useRef(null)
 
@@ -42,7 +55,23 @@ export default function Modal({open, setOpen, Tienda}) {
                                                 Model Test {Tienda}
                                             </Dialog.Title>
                                             <div className="my-8">
-                                                <InputModal label={"Numero de Promotores Pred"}/>
+                                                <form onSubmit={handleSubmit}>
+                                                    <div>
+                                                        <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                                                            Numero de Promotores Pred
+                                                        </label>
+                                                        <div className="relative mt-2 rounded-md shadow-sm">
+                                                            <input
+                                                                onChange={handleChange}
+                                                                type="number"
+                                                                name="num"
+                                                                id="num"
+                                                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                                placeholder="0.00"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +87,7 @@ export default function Modal({open, setOpen, Tienda}) {
                                     <button
                                         type="button"
                                         className="mt-3 inline-flex w-full justify-center rounded-md bg-mabecolor px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-mabehover sm:mt-0 sm:w-auto"
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => handleSubmit()}
                                         ref={cancelButtonRef}
                                     >
                                         Apply

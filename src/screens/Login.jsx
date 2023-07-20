@@ -3,10 +3,12 @@ import analiticslogo from "../assets/artificial-neural-network-deep-learning-mac
 import {useNavigate} from "react-router-dom";
 
 export default function Login() {
+
+    const navigate = useNavigate();
     const handlesubmit = () => {
         navigate('/home')
     }
-    const navigate = useNavigate();
+
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

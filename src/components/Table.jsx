@@ -3,50 +3,10 @@ import {useContext, useState} from "react";
 import ModalSuccesfully from "./ModalSuccesfully.jsx";
 import {Context} from "../context/context.jsx";
 
-const test = [
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'GUADALAJARA', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CDMX', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'JALISCO', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'VERACRUZ', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-    { Tienda: 'CD JARDIN', Evento: 'QUINCENA MABE', VentasCuota:  743930 , VentasCuotaFinal: 743930, NumPromotorPred: 743930, NumPromotorPredEdit: 0, DPV: 0, VentasFaltantes: 0 },
-]
 export default function Table() {
     const [open, setOpen] = useState(false)
     const {getPeticion, data} = useContext(Context);
     console.log(data)
-    console.log(test)
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="mt-8 flex flex-col">
@@ -93,20 +53,20 @@ export default function Table() {
                                 </thead>
                                 <tbody className="divide-gray-200 bg-white">
                                 <ModalSuccesfully open={open} setOpen={setOpen}/>
-                                {data ? data.map((test,index) => (
-                                    <tr key={index}>
+                                {data ? data.map((test,index) => {
+                                    return(<tr key={index}>
                                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
                                             {test.tienda}
                                         </td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.evento}</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota}</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota.toFixed(2)}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.VentasCuotaFinal ? test.VentasCuotaFinal : "0"}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.num_promotor_pred}</td>
-                                        <EditPromotor data={test.num_promotor_pred} tienda={test.Tienda}/>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.DPV}%</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_faltantes == 0 ? "-" :  test.ventas_faltantes}</td>
+                                        <EditPromotor data={test.num_promotor_pred} tienda={test.Tienda} id={index}/>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.DPV.toFixed(2)}%</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_faltantes.toFixed(2) == 0 ? "-" : test.ventas_faltantes.toFixed(2)}</td>
                                     </tr>
-                                )) : <></>}
+                                    )}) : <></>}
                                 </tbody>
                             </table>
                         </div>
