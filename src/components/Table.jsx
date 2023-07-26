@@ -60,11 +60,11 @@ export default function Table() {
                                         </td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.evento}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota.toFixed(2)}</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.VentasCuotaFinal ? test.VentasCuotaFinal : "0"}</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota_final ? test.ventas_cuota_final.toFixed(2) : "0"}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.num_promotor_pred}</td>
-                                        <EditPromotor data={test.num_promotor_pred} tienda={test.Tienda} id={index}/>
+                                        <EditPromotor data1={test.num_promotor_pred} tienda={test.Tienda} id={index}/>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.DPV.toFixed(2)}%</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_faltantes.toFixed(2) == 0 ? "-" : test.ventas_faltantes.toFixed(2)}</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_faltantes <= 0 ? "-" : test.ventas_faltantes.toFixed(2)}</td>
                                     </tr>
                                     )}) : <></>}
                                 </tbody>

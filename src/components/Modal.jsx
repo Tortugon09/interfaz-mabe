@@ -3,20 +3,38 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import {Context} from "../context/context.jsx";
 
-export default function Modal({open, setOpen, Tienda, change}) {
+export default function Modal({open, setOpen, Tienda, change, id}) {
     const [newValor, setNewValor] = useState(0)
+    const {TiendaEdit, data} = useContext(Context);
 
+    const [tiendaEdit, setTiendaEdit] = useState(
+        {
+            DPV: data[id].DPV,
+            costo_promedio_promotor: data[id].costo_promedio_promotor,
+            costo_total_promotores: data[id].costo_total_promotores,
+            evento: data[id].evento,
+            num_promotor_pred: data[id].num_promotor_pred,
+            num_promotor_pred_edit: 0,
+            tienda: data[id].tienda,
+            ventas_cuota: data[id].ventas_cuota,
+            ventas_cuota_final: 0,
+            ventas_faltantes: data[id].ventas_faltantes,
+            ventas_para_objetivo: data[id].ventas_para_objetivo
+        }
+    )
 
     const handleChange = (e) => {
         setNewValor(e.target.value)
-        console.log(newValor)
+        setTiendaEdit({...tiendaEdit, num_promotor_pred_edit: e.target.value})
+        console.log(tiendaEdit)
     }
 
 
     function handleSubmit (){
         change(newValor)
         setOpen(false)
-        console.log(valor)
+        TiendaEdit(tiendaEdit, id)
+        console.log(tiendaEdit)
     }
 
     const cancelButtonRef = useRef(null)
@@ -66,6 +84,7 @@ export default function Modal({open, setOpen, Tienda, change}) {
                                                                 type="number"
                                                                 name="num"
                                                                 id="num"
+                                                                value={newValor}
                                                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                                 placeholder="0.00"
                                                             />
