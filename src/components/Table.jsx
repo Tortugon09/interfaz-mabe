@@ -13,9 +13,6 @@ export default function Table() {
                 <div className="flex justify-end my-5">
                     <button className="bg-lime-500 py-2 text-white px-4 rounded-md" onClick={() => setOpen(true)}>Send</button>
                 </div>
-                <div className="flex justify-end my-5">
-                    <button className="bg-lime-500 py-2 text-white px-4 rounded-md" onClick={() => getPeticion()}>Prueba Peticion</button>
-                </div>
                 <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle">
                         <div className="overflow-hidden shadow-sm ring-1 ring-black ring-opacity-5">
@@ -60,7 +57,7 @@ export default function Table() {
                                         </td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.evento}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota.toFixed(2)}</td>
-                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota_final ? test.ventas_cuota_final.toFixed(2) : "0"}</td>
+                                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.ventas_cuota_final ? test.ventas_cuota_final.toFixed(2) : test.ventas_cuota.toFixed(2)}</td>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.num_promotor_pred}</td>
                                         <EditPromotor data1={test.num_promotor_pred} tienda={test.Tienda} id={index}/>
                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{test.DPV.toFixed(2)}%</td>
